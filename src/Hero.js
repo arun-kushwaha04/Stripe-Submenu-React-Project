@@ -1,9 +1,11 @@
 import React from "react";
 import phoneImg from "./images/phone.svg";
+import { useGlobal } from "./context";
 
 const Hero = () => {
+  const { closeSubMenu } = useGlobal();
   return (
-    <section className="hero">
+    <section className="hero" onMouseOver={closeSubMenu}>
       <div className="hero-center">
         <article className="hero-info">
           <h2>

@@ -9,11 +9,14 @@ const Navbar = () => {
     const text = e.target.textContent;
     const btn = e.target.getBoundingClientRect();
     const center = (btn.left + btn.right) / 2;
-    const bottom = btn.bottom;
+    const bottom = btn.bottom - 3;
     openSubMenu(text, { center, bottom });
   };
+  const navHover = (e) => {
+    if (!e.target.classList.contains("link-btn")) closeSubMenu();
+  };
   return (
-    <nav className="nav">
+    <nav className="nav" onMouseOver={navHover}>
       <section className="nav-center">
         <div className="nav-header">
           <img src={logo} alt="stripe-logo" className="nav-logo" />
