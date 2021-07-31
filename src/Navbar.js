@@ -8,7 +8,7 @@ const Navbar = () => {
   const onButtonHover = (e) => {
     const text = e.target.textContent;
     const btn = e.target.getBoundingClientRect();
-    const center = (btn.left + btn.width) / 2;
+    const center = (btn.left + btn.right) / 2;
     const bottom = btn.bottom;
     openSubMenu(text, { center, bottom });
   };

@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [isSubmenuOpen, setIsSubMenuOpen] = useState(false);
   const [page, setPage] = useState("");
   const [links, setLinks] = useState([]);
-
+  const [coordinates, setCoordinates] = useState({ center: 0, bottom: 0 });
   const openSideBar = () => {
     setIsSideBarOpen(true);
   };
@@ -17,11 +17,12 @@ const AppProvider = ({ children }) => {
     setIsSideBarOpen(false);
   };
 
-  const openSubMenu = (text, coordianttes) => {
+  const openSubMenu = (text, coordinates) => {
     setPage(text);
+    setCoordinates(coordinates);
     for (let i = 0; i < sublinks.length; i++) {
       const links = sublinks[i];
-      if (links.page === page) {
+      if (links.page === text) {
         setLinks(links.links);
         break;
       }
@@ -43,6 +44,7 @@ const AppProvider = ({ children }) => {
         closeSubMenu,
         page,
         links,
+        coordinates,
       }}>
       {children}
     </AppContext.Provider>
